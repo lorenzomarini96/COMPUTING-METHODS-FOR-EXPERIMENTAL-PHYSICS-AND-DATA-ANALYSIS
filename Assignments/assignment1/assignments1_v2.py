@@ -69,15 +69,14 @@ def relative_frequence_letter(text):
    
     # Bellurie
     plt.suptitle('Histogram frequence letters')
-    plt.title('"Inferno - 1° Canto"')
+    plt.title('"Divina Commedia - Inferno - 1° Canto"')
     plt.xlabel('Letters')
     plt.xticks(range(len(list_items_dict)), [val[0] for val in list_items_dict])
     plt.minorticks_on()
-    #plt.xticks(rotation=45)
     plt.ylabel('Frequence')
-    #plt.plot([], [], color='white', marker='.',linestyle='None', label='# tot diverse = %.i' %len(lista_chiavi_dizionario))
-    #plt.plot([], [], color='white', marker='.',linestyle='None', label='# tot parole  = %.i' %sum(lista_valori_dizionario))
-    #plt.legend()
+    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters in the text  %.i' %sum(list_values_dict))
+    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters used %.i' %len(list_keys_dict))
+    plt.legend()
 
     plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
     plt.show()
