@@ -3,8 +3,6 @@ import numpy as np
 import operator  
 import timeit
 
-
-
 def relative_frequence_letter(text):
     
     '''
@@ -38,7 +36,6 @@ def relative_frequence_letter(text):
     # New text to be analyzed.
     text_new = split_char(text_join)
     #print(text_new)
-    
     
     #------------------------------------------------------------------------
 
@@ -96,7 +93,6 @@ def relative_frequence_letter(text):
       plt.show()
 
 # test
-
 #elapsed_time = timeit.timeit(relative_frequence_letter(text_test),number=1000)
 #print(elapsed_time)
 
