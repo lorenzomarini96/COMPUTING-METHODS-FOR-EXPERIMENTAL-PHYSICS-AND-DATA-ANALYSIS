@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import operator  
 
 
@@ -46,22 +47,46 @@ def relative_frequence_letter(text):
    
     list_keys_dict   = list(dict_frequence_letter.keys())
     list_values_dict = list(dict_frequence_letter.values())
-    list_itmes_dict  = list(dict_frequence_letter.items())
+    list_items_dict  = list(dict_frequence_letter.items())
    
-   
-    #input(" ")
     print('\n=============================================')
     print(f'\nTotal number of letters in the text: {sum(list_values_dict)}')
     print(f'\nTotal number of letters used: {len(list_keys_dict)}')
     print('\n=============================================\n')
-    #input(" ")
-
-
+  
     dict_frequence_letter_ordered = dict(sorted(dict_frequence_letter.items(), key=operator.itemgetter(1),reverse=True))
     print(dict_frequence_letter_ordered)
 
-    
-# test
-testo = 'Ciao a tutti quanti!'
+    #------------------------------------------------------------------------
 
-relative_frequence_letter(testo)
+    #=======================
+    # Create Histogram
+    #=======================
+
+    plt.figure(figsize=(10,6))
+    plt.bar(range(len(list_items_dict)), [val[1] for val in list_items_dict], facecolor = 'g',ec = 'black', label="Frequenze", width=0.5)
+    #plt.errorbar(range(len(list_items_dict)), [val[1] for val in list_items_dict], np.sqrt([val[1] for val in list_items_dict]), fmt='.', color='black', ecolor='black')
+   
+    # Bellurie
+    plt.suptitle('Histogram frequence letters')
+    plt.title('"Inferno - 1° Canto"')
+    plt.xlabel('Letters')
+    plt.xticks(range(len(list_items_dict)), [val[0] for val in list_items_dict])
+    plt.minorticks_on()
+    #plt.xticks(rotation=45)
+    plt.ylabel('Frequence')
+    #plt.plot([], [], color='white', marker='.',linestyle='None', label='# tot diverse = %.i' %len(lista_chiavi_dizionario))
+    #plt.plot([], [], color='white', marker='.',linestyle='None', label='# tot parole  = %.i' %sum(lista_valori_dizionario))
+    #plt.legend()
+
+    plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
+    plt.show()
+
+# test
+text_test = open('inferno.txt', 'r')
+text_test = text_test.read().replace("\n", " ") # Togliere gli \n per andare a capo.
+
+relative_frequence_letter(text_test)
+
+
+
