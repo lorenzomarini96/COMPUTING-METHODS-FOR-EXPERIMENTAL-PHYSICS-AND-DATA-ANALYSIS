@@ -15,7 +15,6 @@ def relative_frequence_letter(text):
     text = text.read().replace("\n", " ") 
     # Delete unwanted characters.
     text_del = text.maketrans({char: None for char in ""'!#$’%&\'()*+—,-./:;<=>?@[\\]”“«^_`{|}~»'""})
-    #text_del = text.maketrans(None, ""'!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'"")
 
     # Divide the text word by word.
     text_div = text.lower().translate(text_del).split()  # .lower() returns the string with all letters in lowercase (UPPERCASE -> lowercase)
