@@ -59,9 +59,9 @@ def relative_frequence_letter(text):
 
     dict_frequence_letter_ordered = dict(sorted(dict_frequence_letter.items(), key=operator.itemgetter(1),reverse=True))
     print(dict_frequence_letter_ordered)
-    
+
     
 # test
-testo = 'Ciao a tutti quanti!.'
+testo = 'Ciao a tutti quanti!'
 
 relative_frequence_letter(testo)
