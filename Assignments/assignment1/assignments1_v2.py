@@ -11,7 +11,6 @@ def relative_frequence_letter(text):
     
     '''
     # Delete unwanted characters.
-  
     text_del = text.maketrans({char: None for char in ""'!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'""})
 
     # Divide the text word by word.
@@ -22,13 +21,14 @@ def relative_frequence_letter(text):
 
     def split_char(word): 
         '''
-        Function to separate each letter in each word.
+        Function to separate each letter in each word. 
+        Maybe not too pythonic...
         '''
         return [char for char in word]
 
     # New text to be analyzed.
     text_new = split_char(text_join)
-    print(text_new)
+    #print(text_new)
     
     
     #------------------------------------------------------------------------
@@ -52,7 +52,7 @@ def relative_frequence_letter(text):
     #input(" ")
     print('\n=============================================')
     print(f'\nTotal number of letters in the text: {sum(list_values_dict)}')
-    print(f'\nTotal number of letters used: used: {len(list_keys_dict)}')
+    print(f'\nTotal number of letters used: {len(list_keys_dict)}')
     print('\n=============================================\n')
     #input(" ")
 
