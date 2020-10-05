@@ -51,8 +51,8 @@ def relative_frequence_letter(text):
    
     #input(" ")
     print('\n=============================================')
-    print('\nTotal number of letters in the text: %.i'  %(sum(list_values_dict)))
-    print('\nTotal number of letters used: %.i' %(len(list_keys_dict)))
+    print(f'\nTotal number of letters in the text: {sum(list_values_dict)}')
+    print(f'\nTotal number of letters used: used: {len(list_keys_dict)}')
     print('\n=============================================\n')
     #input(" ")
 
