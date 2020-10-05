@@ -16,10 +16,14 @@ def relative_frequence_letter(text):
     # Remove the "\n" to wrap.
     text = text.read().replace("\n", " ") 
     # Delete unwanted characters.
-    text_del = text.maketrans({char: None for char in ""'!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'""})
+    text_del = text.maketrans({char: None for char in ""'!#$’%&\'()*+—,-./:;<=>?@[\\]”“«^_`{|}~»'""})
+    #text_del = text.maketrans(None, ""'!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'"")
 
     # Divide the text word by word.
     text_div = text.lower().translate(text_del).split()  # .lower() returns the string with all letters in lowercase (UPPERCASE -> lowercase)
+
+    # Total number of words in the text (Attention: Not the number of words!)
+    total_number_words = len(text_div)
 
     # Join the elements of the text list with no space between them.
     text_join = ''.join(text_div)
@@ -56,6 +60,7 @@ def relative_frequence_letter(text):
     print('\n=============================================')
     print(f'\nTotal number of letters in the text: {sum(list_values_dict)}')
     print(f'\nTotal number of letters used: {len(list_keys_dict)}')
+    print(f'\nTotal number of words used: {total_number_words}')
     print('\n=============================================\n')
   
     dict_frequence_letter_ordered = dict(sorted(dict_frequence_letter.items(), key=operator.itemgetter(1),reverse=True))
@@ -68,7 +73,7 @@ def relative_frequence_letter(text):
     #=======================
 
     plt.figure(figsize=(10,6))
-    plt.bar(range(len(list_items_dict)), [val[1] for val in list_items_dict], facecolor = 'g',ec = 'black', label="Frequenze", width=0.5)
+    plt.bar(range(len(list_items_dict)), [val[1] for val in list_items_dict], facecolor = 'g',ec = 'black', width=0.5) # label="Frequenze"
     #plt.errorbar(range(len(list_items_dict)), [val[1] for val in list_items_dict], np.sqrt([val[1] for val in list_items_dict]), fmt='.', color='black', ecolor='black')
    
     # Bellurie
@@ -80,9 +85,10 @@ def relative_frequence_letter(text):
     plt.ylabel('Frequence')
     plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters in the text  %.i' %sum(list_values_dict))
     plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters used %.i' %len(list_keys_dict))
-    plt.legend()
+    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of word used %.i' %total_number_words)
+    plt.legend(frameon=False ,fancybox=True, shadow=False, loc='best', prop={"size":12}, numpoints = 1)
     plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
-    
+
     plt.show()
 
 # test
