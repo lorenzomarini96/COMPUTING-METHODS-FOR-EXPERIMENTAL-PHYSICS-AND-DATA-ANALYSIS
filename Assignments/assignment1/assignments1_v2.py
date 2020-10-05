@@ -68,28 +68,32 @@ def relative_frequence_letter(text):
 
     #------------------------------------------------------------------------
 
-    #=======================
-    # Create Histogram
-    #=======================
+    choice = input('Print Histogram of frequences? (y/n)')
 
-    plt.figure(figsize=(10,6))
-    plt.bar(range(len(list_items_dict)), [val[1] for val in list_items_dict], facecolor = 'g',ec = 'black', width=0.5) # label="Frequenze"
-    #plt.errorbar(range(len(list_items_dict)), [val[1] for val in list_items_dict], np.sqrt([val[1] for val in list_items_dict]), fmt='.', color='black', ecolor='black')
-   
-    # Bellurie
-    plt.suptitle('Histogram frequence letters')
-    plt.title('"Divina Commedia - Inferno - 1° Canto"')
-    plt.xlabel('Letters')
-    plt.xticks(range(len(list_items_dict)), [val[0] for val in list_items_dict])
-    plt.minorticks_on()
-    plt.ylabel('Frequence')
-    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters in the text  %.i' %sum(list_values_dict))
-    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters used %.i' %len(list_keys_dict))
-    plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of word used %.i' %total_number_words)
-    plt.legend(frameon=False ,fancybox=True, shadow=False, loc='best', prop={"size":12}, numpoints = 1)
-    plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
+    if choice == 'y':
 
-    plt.show()
+      #=======================
+      # Create Histogram
+      #=======================
+
+      plt.figure(figsize=(10,6))
+      plt.bar(range(len(list_items_dict)), [val[1] for val in list_items_dict], facecolor = 'g',ec = 'black', width=0.5) # label="Frequenze"
+      #plt.errorbar(range(len(list_items_dict)), [val[1] for val in list_items_dict], np.sqrt([val[1] for val in list_items_dict]), fmt='.', color='black', ecolor='black')
+     
+      # Bellurie
+      plt.suptitle('Histogram frequence letters')
+      plt.title('"Divina Commedia - Inferno - 1° Canto"')
+      plt.xlabel('Letters')
+      plt.xticks(range(len(list_items_dict)), [val[0] for val in list_items_dict])
+      plt.minorticks_on()
+      plt.ylabel('Frequence')
+      plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters in the text  %.i' %sum(list_values_dict))
+      plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters used %.i' %len(list_keys_dict))
+      plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of word used %.i' %total_number_words)
+      plt.legend(frameon=False ,fancybox=True, shadow=False, loc='best', prop={"size":12}, numpoints = 1)
+      plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
+
+      plt.show()
 
 # test
 
