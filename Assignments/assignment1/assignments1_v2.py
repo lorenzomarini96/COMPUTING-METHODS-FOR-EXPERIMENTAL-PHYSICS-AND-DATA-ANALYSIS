@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import operator  
+import timeit
+
 
 
 def relative_frequence_letter(text):
@@ -9,8 +11,10 @@ def relative_frequence_letter(text):
     Python program that prints the relative frequence of each letter
     of the alphabet (without distinguishing between lower and upper case) in the
     book.
-    
     '''
+    text = open(text, 'r')
+    # Remove the "\n" to wrap.
+    text = text.read().replace("\n", " ") 
     # Delete unwanted characters.
     text_del = text.maketrans({char: None for char in ""'!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'""})
 
@@ -77,15 +81,17 @@ def relative_frequence_letter(text):
     plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters in the text  %.i' %sum(list_values_dict))
     plt.plot([], [], color='white', marker='.',linestyle='None', label='Total number of letters used %.i' %len(list_keys_dict))
     plt.legend()
-
     plt.savefig('histogram_freq_letters.pdf', bbox_inches='tight')
+    
     plt.show()
 
 # test
-text_test = open('inferno.txt', 'r')
-text_test = text_test.read().replace("\n", " ") # Togliere gli \n per andare a capo.
 
-relative_frequence_letter(text_test)
+#elapsed_time = timeit.timeit(relative_frequence_letter(text_test),number=1000)
+#print(elapsed_time)
+
+
+relative_frequence_letter('inferno.txt')
 
 
 
